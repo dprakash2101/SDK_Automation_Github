@@ -134,7 +134,7 @@ jobs:
           destination-repository-name: 'Reponame'
           user-email: 'username@github.com'
           target-branch: 'main'
-```yml
+```
 
 ## Author
 
