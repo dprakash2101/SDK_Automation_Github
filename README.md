@@ -38,7 +38,7 @@ You can generated SDK for different language just by changing language in the co
 ```yaml
 - name: Generate C# SDK
   run: |
-    openapi-generator-cli generate -i openapispec.yaml -g python -o ${{ github.workspace }}/cpythonsdk --package-name PythonSDK
+    openapi-generator-cli generate -i openapispec.yaml -g python -o ${{ github.workspace }}/pythonsdk --package-name PythonSDK
 ```
 
 
