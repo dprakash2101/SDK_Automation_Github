@@ -44,7 +44,7 @@ You can generate SDK for different languages just by changing the language in th
 
 ### 4. Configure Git for C# SDK
 
-Configure Git with the user email and name for the C# SDK repository.
+Configure Git with the user email and name for the C# SDK repository. Replace ”username.github.com” with the email associated with your GitHub account and “username” with your GitHub username.
 
 ```yaml
 - name: Configure Git for C# SDK
