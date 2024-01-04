@@ -88,7 +88,7 @@ Then, go to the repository's settings, navigate to "Settings -> Secrets and Vari
 ## Notes
 
 - Make sure to replace placeholders (e.g., `username`, `Reponame`) with your actual information.
-- This workflow assumes the existence of an OpenAPI specification file named `openapispec.yaml` in the root of the repository.
+- This workflow assumes the existence of an OpenAPI specification file in the root of the repository. Change the name of the “openapispec.yml” to the name of your OpenAPI spec file in the repository.
 - Customize the OpenAPI Generator parameters in the "Generate C# SDK" step based on your preferences.
 - Ensure that the custom GitHub Action (`cpina/github-action-push-to-another-repository`) is accessible and compatible with your workflow.
 
