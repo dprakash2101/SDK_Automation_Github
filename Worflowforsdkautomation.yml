@@ -1,0 +1,43 @@
+## This workflow is for generating sdk using Open Api generator and Pushing Generated SDK to another repository.
+name: Generate SDK and push it to Another Repository
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push_to_another_repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install OpenAPI Generator
+        run: |
+          npm install -g @openapitools/openapi-generator-cli@latest
+      - name: Generate C# SDK
+        run: |
+          openapi-generator-cli generate -i openapispec.yaml -g csharp -o ${{ github.workspace }}/csharpsdk --package-name CsharpSDK
+        #Replace csharp for your language of choice and CsharpSDK with package name of your choice
+      - name: Configure Git for C# SDK
+        run: |
+          git config --local user.email "username@github.com"
+          git config --local user.name "username"
+        #Replace username@github.com with your email id associated with github account.
+        #Replace username with your github username.
+
+      - name: Push C# SDK to Another Repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.SDK_TOKEN }}
+        with:
+          source-directory: 'csharpsdk'
+          destination-github-username: 'username'
+          destination-repository-name: 'Reponame'
+          user-email: 'username@github.com'
+          target-branch: 'main'
+    #You must have a Personal acces token(PAT) which have repo scope. 
+    # Copy that token it will be accesible only one time.
+    #Then go to setting of repo where your workflow is present and Settings -> Secrets and Variables -> Action -> Repository token and Save it as SDK_Token.
