@@ -27,13 +27,20 @@ This step installs the OpenAPI Generator command-line interface (CLI) to generat
 
 ### 3. Generate C# SDK
 
-This step utilizes the OpenAPI Generator CLI to generate the C# SDK based on the provided OpenAPI specification (`openapispec.yaml`). Adjust the generator and package name as needed.
+This step utilizes the OpenAPI Generator CLI to generate the C# SDK based on the provided OpenAPI specification (`openapispec.yaml`). Change the "openapispec.yaml" with your openapispecfile. Adjust the generator and package name as needed. 
 
 ```yaml
 - name: Generate C# SDK
   run: |
     openapi-generator-cli generate -i openapispec.yaml -g csharp -o ${{ github.workspace }}/csharpsdk --package-name CsharpSDK
 ```
+You can generated SDK for different language just by changing language in the command and change the package name as per your choice, for example we will do with Python:
+```yaml
+- name: Generate C# SDK
+  run: |
+    openapi-generator-cli generate -i openapispec.yaml -g python -o ${{ github.workspace }}/csharpsdk --package-name PythonSDK
+```
+
 
 ### 4. Configure Git for C# SDK
 
@@ -77,3 +84,7 @@ To use this workflow, you must have a Personal Access Token (PAT) with the `repo
 - Ensure that the custom GitHub Action (`cpina/github-action-push-to-another-repository`) is accessible and compatible with your workflow.
 
 Feel free to modify this workflow according to your specific requirements and preferences.
+
+## Author
+
+- [Devi Prakash](https://github.com/dprakash2101)
