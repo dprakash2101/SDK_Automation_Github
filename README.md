@@ -94,6 +94,48 @@ Then, go to the repository's settings, navigate to "Settings -> Secrets and Vari
 
 Feel free to modify this workflow according to your specific requirements and preferences.
 
+
+## Sample Workflow
+
+```yml
+
+name: Generate SDK and push it to Another Repository
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push_to_another_repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install OpenAPI Generator
+        run: |
+          npm install -g @openapitools/openapi-generator-cli@latest
+      - name: Generate C# SDK
+        run: |
+          openapi-generator-cli generate -i openapispec.yaml -g csharp -o ${{ github.workspace }}/csharpsdk --package-name CsharpSDK
+      - name: Configure Git for C# SDK
+        run: |
+          git config --local user.email "username@github.com"
+          git config --local user.name "username"
+      - name: Push C# SDK to Another Repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.SDK_TOKEN }}
+        with:
+          source-directory: 'csharpsdk'
+          destination-github-username: 'username'
+          destination-repository-name: 'Reponame'
+          user-email: 'username@github.com'
+          target-branch: 'main'
+```yml
+
 ## Author
 
 - [Devi Prakash](https://github.com/dprakash2101)
