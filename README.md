@@ -38,7 +38,7 @@ You can generated SDK for different language just by changing language in the co
 ```yaml
 - name: Generate C# SDK
   run: |
-    openapi-generator-cli generate -i openapispec.yaml -g python -o ${{ github.workspace }}/csharpsdk --package-name PythonSDK
+    openapi-generator-cli generate -i openapispec.yaml -g python -o ${{ github.workspace }}/cpythonsdk --package-name PythonSDK
 ```
 
 
@@ -69,6 +69,9 @@ This step uses a custom GitHub Action (`cpina/github-action-push-to-another-repo
     user-email: 'username@github.com'
     target-branch: 'main'
 ```
+
+Generate a Personal Acces Token with repo scope and copy it it will only visible once and got to settings of the repository where worflow is present and Settings -> Secrets and Variables -> Actions -> Repository secret and save it with SDK_TOKEN name or name of choice.
+If you chose different name replace same in the workflow file.
 
 ## Configuration
 
