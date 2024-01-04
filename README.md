@@ -2,7 +2,7 @@
 
 ## Overview
 
-This GitHub Actions workflow is designed to automate the process of generating a software development kit (SDK) using the OpenAPI Generator and pushing the generated SDK to another repository. The GitHu workflow triggers on each push to the `main` branch of the repository.
+This GitHub Actions workflow is designed to automate generating a software development kit (SDK) using the OpenAPI Generator and pushing the generated SDK to another repository. The workflow triggers on push to the main branch of the repository.
 
 ## Workflow Steps
 
@@ -27,14 +27,14 @@ This step installs the OpenAPI Generator command-line interface (CLI) to generat
 
 ### 3. Generate C# SDK
 
-This step utilizes the OpenAPI Generator CLI to generate the C# SDK based on the provided OpenAPI specification (`openapispec.yaml`). Change the "openapispec.yaml" with your openapispecfile. Adjust the generator and package name as needed. 
+This step utilizes the OpenAPI Generator CLI to generate the C# SDK based on the provided OpenAPI specification (`openapispec.yaml`). Change the "openapispec.yaml" with your OpenAPI spec file. Adjust the generator and package name as needed. 
 
 ```yaml
 - name: Generate C# SDK
   run: |
     openapi-generator-cli generate -i openapispec.yaml -g csharp -o ${{ github.workspace }}/csharpsdk --package-name CsharpSDK
 ```
-You can generated SDK for different language just by changing language in the command and change the package name as per your choice, for example we will do with Python:
+You can generate SDK for different languages just by changing the language in the command and changing the package name as per your choice, for example we will do this with Python:
 ```yaml
 - name: Generate C# SDK
   run: |
@@ -74,14 +74,14 @@ This step uses a custom GitHub Action (`cpina/github-action-push-to-another-repo
 ## Configuration
 
 ### Personal access token generation
- Account settings -> Developer Settings -> Personal access tokens -> Tokens (classic) -> Generate New Token
- Above proccess uis for generation of personal Acces Tokens
+Account settings -> Developer Settings -> Personal access tokens -> Tokens (classic) -> Generate New Token 
 
+The above process is for the generation of Personal access tokens.
 ### SDK Token
 
-To use this workflow, you must have a Personal Access Token (PAT) with the `repo` scope. Generate a Personal Acces Token(PAT) with repo scope and copy it it will only visible once Copy the token, which will be accessible only once. The steps to generate Personal access Token(PAT) are mentioned above.
+To use this workflow, you must have a Personal Access Token (PAT) with the repo scope. Generate a Personal Acces Token(PAT) with repo scope and copy it it will only be visible once Copy the token, which will be accessible only once. The steps to generate a Personal Access Token(PAT) are mentioned above.
 
-Then, go to the repository's settings, navigate to "Settings -> Secrets and Variables -> Action -> Repository token," and save it as `SDK_TOKEN`.
+Then, go to the repository's settings, navigate to "Settings -> Secrets and Variables -> Action -> Repository token," and save it as SDK_TOKEN.
 
 
 
@@ -90,7 +90,7 @@ Then, go to the repository's settings, navigate to "Settings -> Secrets and Vari
 - Make sure to replace placeholders (e.g., `username`, `Reponame`) with your actual information.
 - This workflow assumes the existence of an OpenAPI specification file in the root of the repository. Change the name of the “openapispec.yml” to the name of your OpenAPI spec file in the repository.
 - Customize the OpenAPI Generator parameters in the "Generate C# SDK" step based on your preferences.
-- Ensure that the custom GitHub Action (`cpina/github-action-push-to-another-repository`) is accessible and compatible with your workflow.
+- Ensure the custom GitHub Action (cpina/github-action-push-to-another-repository) is accessible and compatible with your workflow.
 
 Feel free to modify this workflow according to your specific requirements and preferences.
 
