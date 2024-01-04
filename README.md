@@ -70,8 +70,6 @@ This step uses a custom GitHub Action (`cpina/github-action-push-to-another-repo
     target-branch: 'main'
 ```
 
- and got to settings of the repository where worflow is present and Settings -> Secrets and Variables -> Actions -> Repository secret and save the PAT with SDK_TOKEN name or name of choice.
-If you chose different name replace same in the workflow file.
 
 ## Configuration
 
