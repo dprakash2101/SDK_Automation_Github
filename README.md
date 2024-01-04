@@ -1,8 +1,8 @@
-# Generate SDK and Push to Another Repository Workflow
+# Generate SDK and Push to Another Repository - GitHub Workflow
 
 ## Overview
 
-This GitHub Actions workflow is designed to automate the process of generating a software development kit (SDK) using the OpenAPI Generator and pushing the generated SDK to another repository. The workflow triggers on each push to the `main` branch of the repository.
+This GitHub Actions workflow is designed to automate the process of generating a software development kit (SDK) using the OpenAPI Generator and pushing the generated SDK to another repository. The GitHu workflow triggers on each push to the `main` branch of the repository.
 
 ## Workflow Steps
 
@@ -17,7 +17,7 @@ This step checks out the repository to the runner machine to provide access to t
 
 ### 2. Install OpenAPI Generator
 
-This step installs the OpenAPI Generator command-line interface (CLI) to generate the SDK based on the OpenAPI specification.
+This step installs the OpenAPI Generator command-line interface (CLI) to generate the SDK based on the OpenAPI specification. You do not need to install Node.Js as it is already installed in the machine provided by GitHub.
 
 ```yaml
 - name: Install OpenAPI Generator
