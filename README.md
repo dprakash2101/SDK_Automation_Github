@@ -70,14 +70,22 @@ This step uses a custom GitHub Action (`cpina/github-action-push-to-another-repo
     target-branch: 'main'
 ```
 
-Generate a Personal Acces Token(PAT) with repo scope and copy it it will only visible once and got to settings of the repository where worflow is present and Settings -> Secrets and Variables -> Actions -> Repository secret and save the PAT with SDK_TOKEN name or name of choice.
+ and got to settings of the repository where worflow is present and Settings -> Secrets and Variables -> Actions -> Repository secret and save the PAT with SDK_TOKEN name or name of choice.
 If you chose different name replace same in the workflow file.
 
 ## Configuration
 
+### Personal access token generation
+ Account settings -> Developer Settings -> Personal access tokens -> Tokens (classic) -> Generate New Token
+ Above proccess uis for generation of personal Acces Tokens
+
 ### SDK Token
 
-To use this workflow, you must have a Personal Access Token (PAT) with the `repo` scope. Copy the token, which will be accessible only once. Then, go to the repository's settings, navigate to "Settings -> Secrets and Variables -> Action -> Repository token," and save it as `SDK_TOKEN`.
+To use this workflow, you must have a Personal Access Token (PAT) with the `repo` scope. Generate a Personal Acces Token(PAT) with repo scope and copy it it will only visible once Copy the token, which will be accessible only once. The steps to generate Personal access Token(PAT) are mentioned above.
+
+Then, go to the repository's settings, navigate to "Settings -> Secrets and Variables -> Action -> Repository token," and save it as `SDK_TOKEN`.
+
+
 
 ## Notes
 
